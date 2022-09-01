@@ -21,6 +21,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mybatis.jpetstore.SecretData;
 import org.mybatis.jpetstore.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -49,7 +50,7 @@ class AccountMapperTest {
 
     // then
     assertThat(account.getUsername()).isEqualTo("j2ee");
-    assertThat(account.getEmail()).isEqualTo("yourname@yourdomain.com");
+    assertThat(account.getEmail().toString()).isEqualTo("yourname@yourdomain.com");
     assertThat(account.getFirstName()).isEqualTo("ABC");
     assertThat(account.getLastName()).isEqualTo("XYX");
     assertThat(account.getStatus()).isEqualTo("OK");
@@ -104,7 +105,7 @@ class AccountMapperTest {
     // given
     Account account = new Account();
     account.setUsername("mybatis");
-    account.setEmail("mybatis@example.com");
+    account.setEmail(new SecretData("mybatis@example.com"));
     account.setFirstName("My");
     account.setLastName("Batis");
     account.setStatus("NG");
@@ -177,7 +178,7 @@ class AccountMapperTest {
     // given
     Account account = new Account();
     account.setUsername("j2ee");
-    account.setEmail("mybatis@example.com");
+    account.setEmail(new SecretData("mybatis@example.com"));
     account.setFirstName("My");
     account.setLastName("Batis");
     account.setStatus("NG");

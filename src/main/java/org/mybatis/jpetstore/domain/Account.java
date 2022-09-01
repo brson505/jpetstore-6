@@ -19,6 +19,8 @@ import java.io.Serializable;
 
 import net.sourceforge.stripes.validation.Validate;
 
+import org.mybatis.jpetstore.SecretData;
+
 /**
  * The Class Account.
  *
@@ -30,7 +32,7 @@ public class Account implements Serializable {
 
   private String username;
   private String password;
-  private String email;
+  private SecretData email;
   private String firstName;
   private String lastName;
   private String status;
@@ -63,11 +65,11 @@ public class Account implements Serializable {
     this.password = password;
   }
 
-  public String getEmail() {
+  public SecretData getEmail() {
     return email;
   }
 
-  public void setEmail(String email) {
+  public void setEmail(SecretData email) {
     this.email = email;
   }
 

@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
+import org.mybatis.jpetstore.SecretData;
 
 class OrderTest {
 
@@ -29,7 +30,7 @@ class OrderTest {
     // given
     Account account = new Account();
     account.setUsername("mybatis");
-    account.setEmail("mybatis@example.com");
+    account.setEmail(new SecretData("mybatis@example.com"));
     account.setFirstName("My");
     account.setLastName("Batis");
     account.setStatus("NG");
